@@ -6,7 +6,7 @@
 /*   By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 10:18:14 by alafranc          #+#    #+#             */
-/*   Updated: 2021/03/25 12:15:52 by alafranc         ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 06:59:36 by alafranc         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	ft_display_space_unsigned(int nb, int size_nb, t_flags flags)
 	{
 		if (flags.nb_precision > size_nb
 			|| (flags.nb_precision == 0 && nb == 0))
-			count += ft_display_space(flags.lmc - flags.nb_precision);
+			count += ft_display_repeat(' ', flags.lmc - flags.nb_precision);
 		else
-			count += ft_display_space(flags.lmc - size_nb);
+			count += ft_display_repeat(' ', flags.lmc - size_nb);
 	}
 	return (count);
 }
@@ -34,9 +34,9 @@ int	ft_display_zero_unsigned(int size_nb, t_flags flags)
 
 	count = 0;
 	if (flags.nb_precision > size_nb)
-		count += ft_display_zero(flags.nb_precision - size_nb);
+		count += ft_display_repeat('0', flags.nb_precision - size_nb);
 	else if (flags.lmc > size_nb)
-		count += ft_display_zero(flags.lmc - size_nb);
+		count += ft_display_repeat('0', flags.lmc - size_nb);
 	return (count);
 }
 

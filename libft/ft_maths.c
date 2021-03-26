@@ -6,20 +6,17 @@
 /*   By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 10:00:40 by alafranc          #+#    #+#             */
-/*   Updated: 2021/03/24 13:34:10 by alafranc         ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 09:13:34 by alafranc         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_factorial(int nb)
+int	ft_even(int nb)
 {
-	if (nb < 0)
-		return (0);
-	if (nb == 0)
+	if (nb % 2 == 0)
 		return (1);
-	else
-		return (nb * ft_factorial(nb - 1));
+	return (0);
 }
 
 int	ft_power(int nb, int power)

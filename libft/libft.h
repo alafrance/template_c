@@ -6,7 +6,7 @@
 /*   By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 15:23:42 by alafranc          #+#    #+#             */
-/*   Updated: 2021/03/24 14:46:17 by alafranc         ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 09:14:08 by alafranc         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,8 +122,7 @@ const char			*parse_flags_lmc(const char *format, t_flags *flags \
 const char			*parse_flags_precision(const char *format, \
 								t_flags *flags, va_list ap);
 const char			*parse(const char *format, t_flags *flags, va_list ap);
-int					ft_display_space(int nb_space);
-int					ft_display_zero(int nb_zero);
+int					ft_display_repeat(char c, int nb);
 int					ft_display_space_unsigned(int nb, int size_nb, \
 									t_flags flags);
 int					ft_display_zero_unsigned(int size_nb, t_flags flags);
@@ -133,5 +132,5 @@ int					ft_putchar_hexa_maj_1(char c);
 int					ft_putnbr_hexa_maj_count(unsigned long long nb);
 int					ft_zero_exception(t_flags flags);
 int					ft_lstnew_prt(t_list **s, size_t count, size_t size);
-
+int					ft_even(int nb);
 #endif
