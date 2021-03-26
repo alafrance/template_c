@@ -6,7 +6,7 @@
 #    By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/23 14:11:52 by alafranc          #+#    #+#              #
-#    Updated: 2021/03/23 14:11:53 by alafranc         ###   ########lyon.fr    #
+#    Updated: 2021/03/26 06:43:13 by alafranc         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,12 +37,11 @@ lib:
 				${CC} ${FLAGS} -c $< -o $@ -I ${INC_PATH}
 
 ${NAME}: 		lib ${OBJS}
-				${CC} ${OBJS} main.c -o ${NAME} ${NAME_LIBFT} -I ${INC_PATH}
+				${CC} ${FLAGS} ${OBJS} main.c -o ${NAME} ${NAME_LIBFT} -I ${INC_PATH}
 
 clean:
 				make -C ${LIBFT_PATH} clean
 				${RM} ${OBJS} ${OBJS_BONUS}
-				${RM} cub3d.bmp
 
 fclean:			clean
 				${RM} ${NAME}
@@ -51,4 +50,4 @@ fclean:			clean
 re:				fclean all
 
 
-.PHONY: all clean fclean re bonus lib
+.PHONY: all clean fclean re lib
