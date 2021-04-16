@@ -6,7 +6,7 @@
 /*   By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 15:16:54 by alafranc          #+#    #+#             */
-/*   Updated: 2021/03/24 16:00:47 by alafranc         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 14:24:38 by alafranc         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,15 @@ static int	ft_initialize_itoa(long *nb, int *sign, char **buf, int n)
 	if (*nb < 0)
 	{
 		*nb = -(*nb);
-		if (!(ft_nalloc(buf, sizeof(char), size_n(*nb) + 2)))
+		buf = malloc(sizeof(char) * (size_n(*nb) + 2));
+		if (!buf)
 			return (0);
 		*sign = -1;
 	}
 	else
 	{
-		if (!(ft_nalloc(buf, sizeof(char), size_n(*nb) + 1)))
+		buf = malloc(sizeof(char) * (size_n(*nb) + 1));
+		if (!buf)
 			return (0);
 	}
 	return (1);

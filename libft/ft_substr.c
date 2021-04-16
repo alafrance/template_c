@@ -6,7 +6,7 @@
 /*   By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 14:15:14 by sylvainlafr       #+#    #+#             */
-/*   Updated: 2021/03/24 14:24:23 by alafranc         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 14:28:41 by alafranc         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	while (size < len && s[start + size])
 		size++;
-	if (!(ft_nalloc(&buf, sizeof(char), (size + 1))))
+	buf = malloc(sizeof(char) * (size + 1));
+	if (!buf)
 		return (NULL);
 	while (s[start] && i < len)
 		buf[i++] = s[start++];

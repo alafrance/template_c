@@ -6,7 +6,7 @@
 /*   By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 00:03:45 by alafranc          #+#    #+#             */
-/*   Updated: 2021/03/24 15:57:50 by alafranc         ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 15:38:53 by alafranc         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ char	*ft_strjoin_free(char *s1, char *s2)
 		return (ft_strdup(s2));
 	if (s2 == NULL)
 		return (ft_strdup(s1));
-	if (!(ft_nalloc(&buf, sizeof(char), ft_strlen(s1) + ft_strlen(s2) + 1)))
+	buf = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!buf)
 		return (NULL);
 	while (s1[j])
 		buf[i++] = s1[j++];
@@ -52,6 +53,14 @@ int	ft_strchr_gnl(char *file, int c)
 	return (-1);
 }
 
+static void	ft_substr_end(int *end, char *s)
+{
+	if (ft_strchr_gnl(s, '\n') == -1)
+		*end = ft_strlen(s);
+	else
+		*end = ft_strchr_gnl(s, '\n');
+}
+
 char	*ft_substr_line(char *s)
 {
 	char	*buf;
@@ -61,15 +70,15 @@ char	*ft_substr_line(char *s)
 
 	i = 0;
 	size = 0;
-	if (ft_strchr_gnl(s, '\n') == -1)
-		end = ft_strlen(s);
-	else
-		end = ft_strchr_gnl(s, '\n');
+	if (!s)
+		return (NULL);
+	ft_substr_end(&end, s);
 	if (end == 0)
 		return (ft_strdup(""));
 	while (i < end && s[i])
 		i++;
-	if (!(ft_nalloc(&buf, sizeof(char), i + 1)))
+	buf = malloc(sizeof(char) * (i + 1));
+	if (!buf)
 		return (NULL);
 	i = 0;
 	while (s[i] && i < end)
@@ -79,4 +88,10 @@ char	*ft_substr_line(char *s)
 	}
 	buf[i] = '\0';
 	return (buf);
+}
+
+int	free_error_gnl(char *str_temp)
+{
+	free(str_temp);
+	return (-1);
 }

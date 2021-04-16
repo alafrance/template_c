@@ -6,7 +6,7 @@
 /*   By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 15:23:42 by alafranc          #+#    #+#             */
-/*   Updated: 2021/03/24 14:46:17 by alafranc         ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 15:38:28 by alafranc         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,6 @@ char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
-int					ft_nalloc(char **s, size_t count, size_t size);
-int					ft_nalloc_void(void **s, size_t count, size_t size);
-int					ft_nalloc_list(t_list **s, size_t count, size_t size);
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **alst, t_list *new);
 int					ft_lstsize(t_list *lst);
@@ -90,13 +87,14 @@ void				ft_putstr(char *str);
 void				ft_putnbr(int n);
 int					ft_size_nb(unsigned long long nb, int base);
 char				*ft_remove_first_line(char *file);
-char				*fill_filebuf(int fd, char *filebuf, int *b_read, int *eof);
+char				*fill_filebuf(int fd, char *filebuf, int *b_read);
 int					get_next_line(int fd, char **line);
 size_t				ft_strlen(const char *s);
 char				*ft_strdup(char *src);
 char				*ft_strjoin_free(char *s1, char *s2);
 int					ft_strchr_gnl(char *file, int c);
 char				*ft_substr_line(char *s);
+int					free_error_gnl(char *str_temp);
 typedef struct s_flags {
 	int				display_zero;
 	int				space_reverse;
@@ -122,8 +120,7 @@ const char			*parse_flags_lmc(const char *format, t_flags *flags \
 const char			*parse_flags_precision(const char *format, \
 								t_flags *flags, va_list ap);
 const char			*parse(const char *format, t_flags *flags, va_list ap);
-int					ft_display_space(int nb_space);
-int					ft_display_zero(int nb_zero);
+int					ft_display_repeat(char c, int nb);
 int					ft_display_space_unsigned(int nb, int size_nb, \
 									t_flags flags);
 int					ft_display_zero_unsigned(int size_nb, t_flags flags);
@@ -133,5 +130,12 @@ int					ft_putchar_hexa_maj_1(char c);
 int					ft_putnbr_hexa_maj_count(unsigned long long nb);
 int					ft_zero_exception(t_flags flags);
 int					ft_lstnew_prt(t_list **s, size_t count, size_t size);
-
+int					ft_even(int nb);
+int					ft_abs(int nb);
+int					ft_strslen(char **strs);
+void				free_all(char **strs, int j);
+char				**ft_strsjoin(char **s1, char *s2);
+char				**ft_strsdup(char **s1);
+char				*ft_strcpy(char *dest, char *src);
+void				*malloc_gc(t_list **gc, size_t size);
 #endif

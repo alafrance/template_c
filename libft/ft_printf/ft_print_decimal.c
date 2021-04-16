@@ -6,7 +6,7 @@
 /*   By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 17:24:28 by alafranc          #+#    #+#             */
-/*   Updated: 2021/03/25 12:15:34 by alafranc         ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 06:58:22 by alafranc         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int	ft_display_space_decimal(int neg, int nb, int size_nb, t_flags flags)
 	{
 		if (flags.nb_precision > size_nb
 			|| (flags.nb_precision == 0 && nb == 0))
-			count += ft_display_space(flags.lmc - flags.nb_precision);
+			count += ft_display_repeat(' ', flags.lmc - flags.nb_precision);
 		else
-			count += ft_display_space(flags.lmc - size_nb);
+			count += ft_display_repeat(' ', flags.lmc - size_nb);
 	}
 	return (count);
 }
@@ -36,7 +36,7 @@ int	ft_zero_exception(t_flags flags)
 
 	count = 0;
 	if (flags.lmc > 0)
-		count += ft_display_space(flags.lmc);
+		count += ft_display_repeat(' ', flags.lmc);
 	return (count);
 }
 
@@ -46,13 +46,13 @@ int	ft_display_zero_decimal(int neg, int size_nb, t_flags flags)
 
 	count = 0;
 	if (flags.nb_precision > size_nb)
-		count += ft_display_zero(flags.nb_precision - size_nb);
+		count += ft_display_repeat('0', flags.nb_precision - size_nb);
 	else if (flags.lmc > size_nb)
 	{
 		if (neg)
-			count += ft_display_zero(flags.lmc - size_nb - 1);
+			count += ft_display_repeat('0', flags.lmc - size_nb - 1);
 		else
-			count += ft_display_zero(flags.lmc - size_nb);
+			count += ft_display_repeat('0', flags.lmc - size_nb);
 	}
 	return (count);
 }

@@ -6,29 +6,19 @@
 /*   By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/15 10:47:29 by alafranc          #+#    #+#             */
-/*   Updated: 2021/03/25 12:13:44 by alafranc         ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 07:12:17 by alafranc         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_display_space(int nb_space)
+int	ft_display_repeat(char c, int nb)
 {
 	int	i;
 
 	i = -1;
-	while (++i < nb_space)
-		ft_putchar(' ');
-	return (i);
-}
-
-int	ft_display_zero(int nb_zero)
-{
-	int	i;
-
-	i = -1;
-	while (++i < nb_zero)
-		ft_putchar('0');
+	while (++i < nb)
+		ft_putchar(c);
 	return (i);
 }
 

@@ -6,7 +6,7 @@
 /*   By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 15:02:05 by sylvainlafr       #+#    #+#             */
-/*   Updated: 2021/03/24 14:25:22 by alafranc         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 14:28:21 by alafranc         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ static char	*ft_error_ft_strtrim(void)
 {
 	char	*buf;
 
-	if (!(ft_nalloc(&buf, sizeof(char), 1)))
+	buf = malloc(sizeof(char));
+	if (!buf)
 		return (NULL);
 	buf[0] = 0;
 	return (buf);
@@ -54,7 +55,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 		j--;
 	if (i >= j)
 		return (ft_error_ft_strtrim());
-	if (!(ft_nalloc(&buf, sizeof(char), j - i + 2)))
+	buf = malloc(sizeof(char) * (j - i + 2));
+	if (!buf)
 		return (NULL);
 	while (i <= j)
 		buf[k++] = s1[i++];

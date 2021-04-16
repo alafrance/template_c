@@ -6,7 +6,7 @@
 /*   By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 09:59:45 by alafranc          #+#    #+#             */
-/*   Updated: 2021/03/23 15:41:55 by alafranc         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 14:23:49 by alafranc         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	if (!is_base_valid(base_from) || !is_base_valid(base_to))
 		return (NULL);
 	nb = ft_atoi_base(nbr, base_from);
-	if (!(ft_nalloc(&str, sizeof(char),
-				ft_strlen_base(nb, ft_strlen(base_to)))))
+	str = malloc(sizeof(char) * ft_strlen_base(nb, ft_strlen(base_to)));
+	if (!str)
 		return (NULL);
 	return (convert_base_10_to_some_base(nb, base_to, str));
 }

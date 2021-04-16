@@ -6,18 +6,20 @@
 /*   By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 15:18:32 by alafranc          #+#    #+#             */
-/*   Updated: 2021/03/24 15:59:38 by alafranc         ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 15:39:05 by alafranc         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	free_all(char **strs, int j)
+void	free_all(char **strs, int index)
 {
 	int	i;
 
 	i = 0;
-	while (i != j)
+	if (index < 0)
+		return ;
+	while (i != index)
 		free(strs[i++]);
 	free(strs);
 }
@@ -30,7 +32,8 @@ static char	*malloc_a_case(const char *str, char c, char **strs, int index)
 	i = 0;
 	while (str[i] != c && str[i])
 		i++;
-	if (!(ft_nalloc(&buf, i + 1, sizeof(char))))
+	buf = malloc(sizeof(char) * (i + 1));
+	if (!buf)
 	{
 		free_all(strs, index);
 		return (NULL);

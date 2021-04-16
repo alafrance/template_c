@@ -6,7 +6,7 @@
 /*   By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 17:20:14 by alafranc          #+#    #+#             */
-/*   Updated: 2021/03/25 12:15:15 by alafranc         ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 06:57:46 by alafranc         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ int	ft_print_string(va_list ap, t_flags flags)
 	if (flags.space_reverse)
 		flags.display_zero = 0;
 	if (!flags.space_reverse && !flags.display_zero && flags.lmc > size)
-		count += ft_display_space(flags.lmc - size);
+		count += ft_display_repeat(' ', flags.lmc - size);
 	if (flags.display_zero && flags.lmc > size)
-		count += ft_display_zero(flags.lmc - size);
+		count += ft_display_repeat('0', flags.lmc - size);
 	count += ft_putstr_count(ptr, size);
 	if (flags.space_reverse && !flags.display_zero && flags.lmc > size)
-		count += ft_display_space(flags.lmc - size);
+		count += ft_display_repeat(' ', flags.lmc - size);
 	return (count);
 }
 
@@ -59,11 +59,11 @@ int	ft_print_char(va_list ap, t_flags flags)
 	if (flags.space_reverse)
 	{
 		count += ft_putchar_1(c);
-		count += ft_display_space(flags.lmc - 1);
+		count += ft_display_repeat(' ', flags.lmc - 1);
 	}
 	else
 	{
-		count += ft_display_space(flags.lmc - 1);
+		count += ft_display_repeat(' ', flags.lmc - 1);
 		count += ft_putchar_1(c);
 	}
 	return (count);
