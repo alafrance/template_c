@@ -6,12 +6,12 @@
 /*   By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 15:12:07 by alafranc          #+#    #+#             */
-/*   Updated: 2021/04/16 15:12:29 by alafranc         ###   ########lyon.fr   */
+/*   Updated: 2021/04/16 15:14:53 by alafranc         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAIN_H
-#define MAIN_H
-
+# define MAIN_H
+# include "../libft/libft.h"
 
 #endif

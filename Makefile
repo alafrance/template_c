@@ -6,12 +6,12 @@
 #    By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/23 14:11:52 by alafranc          #+#    #+#              #
-#    Updated: 2021/04/16 15:12:56 by alafranc         ###   ########lyon.fr    #
+#    Updated: 2021/04/16 15:19:08 by alafranc         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= 
-FILES			= main.c
+FILES			= 
 INC_FILES		= main.h
 INC_PATH		= ./includes/
 INC				= $(addprefix ${INC_PATH}, ${INC_FILES})
@@ -37,7 +37,7 @@ lib:
 				${CC} ${FLAGS} -c $< -o $@ -I ${INC_PATH}
 
 ${NAME}: 		lib ${OBJS}
-				${CC} ${FLAGS} ${OBJS} main.c -o ${NAME} ${NAME_LIBFT} -I ${INC_PATH}
+				${CC} ${FLAGS} ${OBJS} $(addprefix ${SRC_PATH}, main.c) -o ${NAME} ${NAME_LIBFT} -I ${INC_PATH}
 
 clean:
 				make -C ${LIBFT_PATH} clean
